@@ -8,12 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity
-            android:name=".HistoryData"
-            android:exported="false"
-            android:label="Treatment Options"
-            android:parentActivityName=".TestActivity"
-            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".WelcomeActivity"
             android:exported="true"
@@ -45,6 +40,12 @@
             android:label="Treatment Options"
             android:parentActivityName=".TestActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".HistoryData"
+            android:label="Treatment Options"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".TestActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
