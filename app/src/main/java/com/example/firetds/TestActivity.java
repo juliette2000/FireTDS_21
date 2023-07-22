@@ -23,7 +23,7 @@ public class TestActivity extends AppCompatActivity {
 
     //declare buttons
     private TextView tdsTitleText, tdsValueDisplay, InsightTextView;
-    private Button treatmentDetailButton; // Declare the button
+    private Button treatmentDetailButton,SaveButton; // Declare the button
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private DatabaseReference mDatabase;
@@ -53,6 +53,15 @@ public class TestActivity extends AppCompatActivity {
             }
         });
 
+        SaveButton = findViewById(R.id.SaveButton);
+        SaveButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the TreatmentOptionsActivity when the button is clicked
+
+            }
+        });
+
         // FVBI
         tdsTitleText = findViewById(R.id.tdsTitleText);
         tdsValueDisplay = findViewById(R.id.tdsValueDisplay);
@@ -78,10 +87,13 @@ public class TestActivity extends AppCompatActivity {
 
                 ppm = dataSnapshot.child("ppm").getValue(double.class);
 
-                if (ppm < 100) {
+                if (ppm < 1000) {
                     InsightTextView.setText("Water TDS is acceptable");
                     treatmentDetailButton.setVisibility(View.GONE);
-                } else {
+                } else if (ppm < 1500) {
+                    InsightTextView.setText("Water TDS is acceptable");
+                    treatmentDetailButton.setVisibility(View.GONE);
+                }else {
                     InsightTextView.setText("Water TDS is Unacceptable");
                     treatmentDetailButton.setVisibility(View.VISIBLE);
                 }
